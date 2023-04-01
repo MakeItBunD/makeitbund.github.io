@@ -1,0 +1,136 @@
+.footer {
+    background-color: $color_3;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        padding: 70px 0 110px 0;
+        color: $color_1;
+    }
+
+    &__logo {
+        margin: 0 0 15px 0;
+    }
+
+    &__text {
+        font-size: 16px;
+        line-height: 150%;
+        margin: 0 0 45px 0;
+
+        &_subscribe {
+            margin: 0 0 14px 0;
+        }
+
+        &_contact {
+            margin: 0 0 15px 0;
+        }
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 20px;
+        margin: 0 0 25px 0;
+    }
+
+    &__link {
+        margin: 0 0 20px 0;
+        cursor: pointer;
+
+        &:last-child {
+            margin: 0;
+        }
+    }
+
+    &__price-button {
+        margin: 0 0 20px 0;
+    }
+
+    &__social-media {
+        display: flex;
+    }
+
+    &__media-link {
+        cursor: pointer;
+
+        &_whatsup {
+            margin: 0 10px 0 0;
+        }
+    }
+
+    &__number {
+        font-weight: 600;
+        margin: 0 0 10px 0;
+    }
+
+    &__working-time {
+        font-weight: 300;
+        font-size: 12px;
+        margin: 0 0 10px 0;
+    }
+
+    &__phone-order {
+        font-size: 10px;
+        text-decoration: underline;
+        margin: 0 0 25px 0;
+        cursor: pointer;
+    }
+
+    &__mail {
+        font-weight: 600;
+        line-height: 18px;
+        margin: 0 0 25px 0;
+
+        span {
+            font-weight: 400;
+            font-size: 12px;
+        }
+    }
+
+    &__card {
+
+        &:first-child {
+            margin: 0 5px 0 0;
+        }
+    }
+
+    &__input-container {
+        position: relative;
+        width: min-content;
+    }
+
+    &__input {
+        padding: 23px;
+    }
+
+    &__button {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translate(0, -50%);
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        padding: 0;
+
+        img {
+            margin: 0;
+        }
+    }
+}
+
+@media (max-width: 1150px) {
+    .footer {
+
+        &__container {
+            display: grid;
+            grid-template-columns: 1fr .5fr .5fr;
+            grid-template-rows: 1fr .5fr;
+            padding: 40px 0 0 0;
+        }
+
+        &__column {
+            margin: 0 0 50px 0;
+        }
+    }
+}

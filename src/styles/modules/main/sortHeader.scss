@@ -1,0 +1,51 @@
+.sort-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 40px 0;
+
+    &__title {
+        color: $color_4;
+        font-weight: 500;
+        font-size: 40px;
+        text-transform: uppercase;
+    }
+    
+    &__label {
+        font-weight: 500;
+        font-size: 16px;
+        margin: 0 10px 0 0;
+    }
+
+    &__select {
+        margin: 0 20px 0 0;
+        background: transparent;
+
+        &:last-child {
+            margin: 0;
+        }
+    }
+}
+
+@media (max-width: 963px) {
+    .sort-header {
+        padding: 0;
+
+        &__sort {
+            display: none;
+        }
+
+        &__title {
+            font-size: 30px;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .sort-header {
+
+        &__title {
+            font-size: 20px;
+        }
+    }
+}

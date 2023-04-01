@@ -1,0 +1,32 @@
+body {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+}
+
+body.modal-active {
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+#root {
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: $color_11;
+}
+
+.container {
+    width: 100%;
+    max-width: 1470px;
+    padding: 0 50px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+    .container {
+        padding: 0 15px;
+    }
+}

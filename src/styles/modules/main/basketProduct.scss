@@ -1,0 +1,126 @@
+.basket-product {
+    border-bottom: 1px solid $color_5;
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-between;
+
+    &__image {
+        width: 250px;
+        height: 100%;
+        border-radius: 10px;
+        margin: 0 20px 0 0;
+    }
+
+    &__item {
+
+
+        &_description {
+            flex: 1 1 auto;
+            padding: 0 50px 0 0;
+        }
+
+        &_price {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+
+    &__name {
+        font-weight: 700;
+        font-size: 26px;
+        margin: 10px 0;
+        line-height: 30px;
+    }
+
+    &__description {
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 135%;
+    }
+
+    &__count-buttons {
+        margin: 0 35px;
+        width: 130px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+    }
+
+    &__count-button {
+        padding: 5px 15px;
+        border-radius: 20px;
+        color: $color_3;
+        background-color: $color_12;
+    }
+
+    &__count {
+        font-weight: 500;
+    }
+
+    &__price {
+        font-weight: 700;
+        font-size: 26px;
+    }
+
+    &__delete-button {
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            margin: 0;
+        }
+    }
+}
+
+@media (max-width: 1150px) {
+    .basket-product {
+
+        &__item {
+
+            &_description {
+                padding: 0 20px 0 0;
+            }
+        }
+
+        &__name {
+            font-size: 20px;
+            line-height: 24px;
+        }
+
+        &__price {
+            font-size: 22px;
+        }
+
+        &__count-buttons {
+            margin: 0;
+            width: 110px;
+        }
+    }
+}
+
+@media (max-width: 950px) {
+    .basket-product {
+        flex-direction: column;
+
+        &__image {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 0 10px 0;
+        }
+
+        &__item {
+
+            &_description {
+                margin: 0 0 20px 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,144 @@
+.products {
+    width: 100%;
+
+    &__title {
+        text-align: center;
+        width: 100%;
+        color: $color_3;
+        font-size: 24px;
+        margin: 50px 20px 20px 20px;
+    }
+
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -20px;
+    }
+
+    &__page-buttons {
+        display: flex;
+        justify-content: center;
+        margin: 30px 0 0 0;
+    }
+
+    &__button {
+        padding: 10px;
+        margin: 0 10px 0 0;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        font-weight: 500;
+
+        &:last-child {
+            margin: 0;
+        }
+
+        &_active {
+            background-color: $color_12;
+        }
+    }
+
+    &__arrow-button {
+        width: 35px;
+        height: 35px;
+
+        &_left {
+            margin: 0 25px 0 0;
+        }
+
+        &_right {
+            margin: 0 0 0 25px;
+        }
+    }
+}
+
+.product {
+    max-width: 310px;
+    min-width: 275px;
+    width: 100%;
+    padding: 25px;
+    background-color: $color_1;
+    border-radius: 10px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &_none {
+        display: none;
+    }
+
+    &__image {
+        width: 100%;
+    }
+
+    &__size-container {
+        margin: 0 0 10px 0;
+    }
+
+    &__name {
+        font-size: 16px;
+        margin: 0 0 15px 0;
+        line-height: 130%;
+        text-align: start;
+    }
+
+    &__product-params {
+        margin: 0 0 15px 0;
+    }
+
+    &__footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__price {
+        font-weight: 800;
+        font-size: 16px;
+    }
+
+    &__button {
+        padding: 15px 25px;
+        font-size: 10px;
+        line-height: 12px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+    }
+
+    &__admin-buttons {
+        margin: 20px 0 0 0;
+    }
+
+    &__admin-button {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 10px 20px;
+
+        &_change {
+            background-color: $color_14;
+            margin: 0 0 10px 0;
+        }
+
+        &_delete {
+            background-color: $color_15;
+        }
+    }
+}
+
+@media (max-width: 1053px) {
+    .product {
+        width: 275px;
+    }
+}
+
+@media (max-width: 963px) {
+    .products {
+
+        &__content {
+            padding: 50px 0;
+            justify-content: center;
+        }
+    }
+}

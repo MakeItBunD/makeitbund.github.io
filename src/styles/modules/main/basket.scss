@@ -1,0 +1,85 @@
+.basket {
+    flex: 1 1 auto;
+
+    &__header {
+        padding: 0 0 50px 0;
+        border-bottom: 1px solid $color_5;
+    }
+
+    &__title {
+        font-weight: 500;
+        font-size: 40px;
+        text-transform: uppercase;
+        color: $color_4;
+    }
+
+    &__content {
+        border-bottom: 1px solid $color_5;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 50px 0;
+    }
+
+    &__price {
+        font-weight: 700;
+        font-size: 30px;
+    }
+
+    &__empty-message {
+        text-align: center;
+        font-size: 26px;
+    }
+
+    &__back-button {
+        margin: 50px auto;
+    }
+}
+
+@media (max-width: 1150px) {
+    .basket {
+
+        &__header {
+            padding: 0 0 20px 0;
+        }
+
+        &__title {
+            font-size: 20px;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .basket {
+
+        &__button {
+            padding: 15px 20px;
+        }
+
+        &__price {
+            font-size: 22px;
+        }
+
+        &__footer {
+            flex-direction: column;
+            padding: 40px 0;
+        }
+
+        &__price {
+            order: 1;
+            font-size: 30px;
+        }
+
+        &__button {
+            margin: 20px 0 0 0;
+            width: 100%;
+            max-width: 300px;
+            display: flex;
+            justify-content: center;
+            order: 2;
+        }
+    }
+}

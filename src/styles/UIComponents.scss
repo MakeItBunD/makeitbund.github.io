@@ -1,0 +1,412 @@
+.button {
+    background-color: $color_6;
+    border-radius: 79px;
+    padding: 21px 55px;
+    color: $color_1;
+    font-weight: 600;
+    line-height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+
+    img {
+        margin: 0 0 0 12px;
+    }
+
+    &:hover {
+        background-color: $color_16;
+    }
+}
+
+.input {
+    background-color: $color_7;
+    font-size: 12px;
+    color: $color_8;
+    border-radius: 36px;
+}
+
+.routes {
+    display: flex;
+    padding: 45px 0;
+    color: $color_3;
+    font-weight: 300;
+
+    &__item {
+        border-right: 1px dotted $color_8;
+        margin: 0 10px 0 0;
+        padding: 0 10px 0 0;
+        color: $color_4;
+
+        &_active {
+            color: $color_8;
+            font-weight: 200;
+            border: none;
+        }
+    }
+}
+
+.back-button {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    color: $color_3;
+    font-weight: 600;
+    font-size: 10px;
+    padding: 0 10px 0 0;
+
+    img {
+        padding: 12px 14px;
+        border-radius: 50%;
+        background-color: $color_12;
+        margin: 0 5px 0 0;
+    }
+}
+
+.modal {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #00000062;
+    padding: 0 20px;
+
+    &__container {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 700px;
+        width: 100%;
+        padding: 100px 0;
+        background-color: $color_1;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    &__icon {
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $color_6;
+        border-radius: 50%;
+        margin: 0 0 20px 0;
+    }
+
+    &__title {
+        font-weight: 500;
+        font-size: 40px;
+        text-transform: uppercase;
+        margin: 0 0 25px 0;
+    }
+
+    &__description {
+        color: $color_3;
+        font-size: 20px;
+        font-weight: 300;
+    }
+
+    &__button {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        padding: 10px;
+    }
+}
+
+.size {
+    margin: 0 0 10px 0;
+}
+
+.form-container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $color_10;
+    background-color: #00000062;
+    padding: 20px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+
+    .form {
+        max-width: 400px;
+        width: 100%;
+        background-color: $color_1;
+        border-radius: 10px;
+        padding: 20px;
+        height: min-content;
+        position: relative;
+
+        &__header {
+            padding: 20px 0;
+            border-bottom: 1px solid $color_5;
+        }
+
+        &__title {
+            text-align: center;
+            font-size: 24px;
+            color: $color_3;
+            text-transform: uppercase;
+        }
+
+        &__content {
+            padding: 20px 0;
+        }
+
+        &__item {
+
+            &_select {
+                margin: 0 0 10px 0;
+            }
+
+            small {
+                display: block;
+                visibility: hidden;
+                height: 15px;
+                color: $color_15;
+            }
+
+            small.error {
+                visibility: visible;
+            }
+        }
+
+        &__label {
+            color: $color_3;
+            font-size: 13px;
+        }
+
+        &__input {
+            width: 100%;
+            width: 100%;
+            border-radius: 0;
+            padding: 5px;
+            background-color: transparent;
+            border-bottom: 1px solid $color_5;
+            translate: .3s;
+            margin: 0 0 5px 0;
+            
+            &:focus {
+                border-bottom: 1px solid $color_3;
+            }
+
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+            }
+
+            &.error {
+                border-bottom: 1px solid $color_15; 
+            }
+        }
+
+        &__select {
+            width: 100%;
+            color: $color_8;
+            font-size: 12px;
+            padding: 8px 0;
+            border-bottom: 1px solid $color_5;
+
+            option {
+                padding: 0;
+            }
+        }
+
+        &__button {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+        }
+
+        &__close-button {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            padding: 10px;
+        }
+    }
+}
+
+.product-params {
+    color: $color_4;
+    font-weight: 500;
+
+    &__item {
+        margin: 0 0 5px 0;
+
+        &:last-child {
+            margin: 0;
+        }
+    }
+
+    span {
+        color: $color_3;
+        font-weight: 300;
+    }
+}
+
+.login {
+    flex: 1 1 auto;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #00000062;
+    z-index: 1;
+
+    &__container {
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+    }
+
+    &__form {
+        width: 100%;
+        max-width: 300px;
+        background-color: $color_1;
+        padding: 20px;
+        border-radius: 10px;
+        position: relative;
+    }
+
+    &__input-container {
+        display: flex;
+        flex-direction: column;
+        margin: 0 0 10px 0;
+
+        small {
+            display: block;
+            visibility: hidden;
+            color: $color_15;
+        }
+
+        small.error {
+            visibility: visible;
+        }
+    }
+
+    &__label {
+        color: $color_3;
+        margin: 0 0 10px 0;
+        font-size: 16px;
+    }
+
+    &__input {
+        width: 100%;
+        width: 100%;
+        border-radius: 0;
+        padding: 5px;
+        background-color: transparent;
+        border-bottom: 1px solid $color_5;
+        translate: .3s;
+        margin: 0 0 5px 0;
+        
+        &:focus {
+            border-bottom: 1px solid $color_3;
+        }
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+
+        &.error {
+            border-bottom: 1px solid $color_15; 
+        }
+    }
+
+    &__button {
+        padding: 15px 30px;
+        width: 100%;
+    }
+
+    &__close-button {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        padding: 10px;
+    }
+}
+
+.alert {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: $color_6;
+    padding: 20px;
+    border-radius: 10px;
+
+    &__title {
+        font-size: 20px;
+        color: $color_1;
+    }
+}
+
+.confirm {
+    flex: 1 1 auto;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #00000062;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__container {
+        background-color: $color_1;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    &__title {
+        font-size: 20px;
+        color: $color_3;
+        margin: 0 0 20px 0;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__button {
+        padding: 15px 25px;
+        width: 100%;
+
+        &_accept {
+            margin: 0 20px 0 0;
+            background-color: $color_15;
+        }
+
+        &_cansel {
+            background-color: $color_14;
+        }
+    }
+}

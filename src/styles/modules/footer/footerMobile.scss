@@ -1,0 +1,171 @@
+.footer-mobile {
+    background-color: $color_3;
+
+    &__container {
+        padding: 15px 0;
+        color: $color_1;
+    }
+
+    &__row {
+        display: flex;
+
+        &_header {
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 0 15px 0;
+        }
+
+        &_subscribe {
+            flex-direction: column;
+            margin: 0 0 30px 0;
+        }
+
+        &_links {
+            justify-content: space-between;
+        }
+
+        &_contacts {
+            flex-direction: column;
+        }
+
+        &_cards {
+            flex-direction: column;
+        }
+    }
+
+    &__price-button {
+        padding: 15px 35px;
+    }
+
+    &__text {
+        font-size: 12px;
+        line-height: 150%;
+
+        &_subscribe {
+            margin: 15px 0;
+        }
+    }
+
+    &__input {
+        width: 100%;
+
+        input {
+            width: 100%;
+        }
+    }
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 20px;
+        margin: 0 0 20px 0;
+
+        &_contact {
+            margin: 0 0 25px 0;
+        }
+    }
+
+    &__link {
+        margin: 0 0 20px 0;
+        cursor: pointer;
+    }
+
+    &__number {
+        font-weight: 600;
+        font-size: 14px;
+        margin: 0 0 10px 0;
+    }
+
+    &__working-time {
+        font-weight: 300;
+        font-size: 12px;
+        margin: 0 0 10px 0;
+    }
+
+    &__phone-order {
+        cursor: pointer;
+        font-size: 10px;
+        text-decoration: underline;
+    }
+
+    &__contact {
+        line-height: 150%;
+        margin: 0 0 25px 0;
+    }
+
+    &__media-link {
+        cursor: pointer;
+
+        &_whatsup {
+            margin: 0 10px 0 0;
+        }
+    }
+
+    &__mail {
+        font-weight: 600;
+        line-height: 18px;
+        margin: 0 0 10px 0;
+
+        span {
+            font-weight: 300;
+            font-size: 12px;
+        }
+    }
+
+    &__card {
+
+        &:first-child {
+            margin: 0 5px 0 0;
+        }
+    }
+
+    &__input-container {
+        position: relative;
+        max-width: 400px;
+        width: 100%;
+    }
+
+    &__input {
+        width: 100%;
+        padding: 23px;
+    }
+
+    &__button {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translate(0, -50%);
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        padding: 0;
+
+        img {
+            margin: 0;
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    .footer-mobile {
+        &__price-button {
+            padding: 15px;
+        }
+
+        &__logo {
+            width: 100px;
+        }
+
+        &__column {
+
+            &_contact {
+                margin: 0 30px 0 0;
+            }
+        }
+    }
+}
