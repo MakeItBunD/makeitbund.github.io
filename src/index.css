@@ -177,6 +177,7 @@ body.modal-active {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.3843137255);
   padding: 0 20px;
+  z-index: 1;
 }
 .modal__container {
   position: absolute;
@@ -419,10 +420,13 @@ body.modal-active {
   background-color: #FFC85E;
   padding: 20px;
   border-radius: 10px;
+  line-height: 24px;
+  z-index: 1;
 }
 .alert__title {
   font-size: 20px;
   color: #ffffff;
+  text-align: center;
 }
 
 .confirm {
@@ -449,6 +453,7 @@ body.modal-active {
   font-size: 20px;
   color: #3F4E65;
   margin: 0 0 20px 0;
+  line-height: 20px;
 }
 .confirm__buttons {
   display: flex;
@@ -466,6 +471,34 @@ body.modal-active {
   background-color: #128512;
 }
 
+@media (max-width: 500px) {
+  .confirm__container {
+    width: 90%;
+  }
+  .confirm__title {
+    font-size: 18px;
+  }
+  .confirm__buttons {
+    flex-direction: column;
+  }
+  .confirm__button_accept {
+    margin: 0 0 10px 0;
+  }
+  .alert {
+    width: 90%;
+  }
+  .modal__container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .modal__title {
+    font-size: 20px;
+  }
+  .modal__description {
+    font-size: 16px;
+  }
+}
 .header-menu {
   border-top: 1px solid rgba(63, 78, 101, 0.2117647059);
   border-bottom: 1px solid rgba(63, 78, 101, 0.2117647059);

@@ -74,6 +74,7 @@
     bottom: 0;
     background-color: #00000062;
     padding: 0 20px;
+    z-index: 1;
 
     &__container {
         position: absolute;
@@ -357,10 +358,13 @@
     background-color: $color_6;
     padding: 20px;
     border-radius: 10px;
+    line-height: 24px;
+    z-index: 1;
 
     &__title {
         font-size: 20px;
         color: $color_1;
+        text-align: center;
     }
 }
 
@@ -389,6 +393,7 @@
         font-size: 20px;
         color: $color_3;
         margin: 0 0 20px 0;
+        line-height: 20px;
     }
 
     &__buttons {
@@ -407,6 +412,50 @@
 
         &_cansel {
             background-color: $color_14;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .confirm {
+        &__container {
+            width: 90%;
+        }
+
+        &__title {
+            font-size: 18px;
+        }
+
+        &__buttons {
+            flex-direction: column;
+        }
+
+        &__button {
+    
+            &_accept {
+                margin: 0 0 10px 0;
+            }
+        }
+    }
+
+    .alert {
+        width: 90%;
+    }
+
+    .modal {
+    
+        &__container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    
+        &__title {
+            font-size: 20px;
+        }
+    
+        &__description {
+            font-size: 16px;
         }
     }
 }
