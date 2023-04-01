@@ -1,10 +1,11 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import deleteIcon from 'D:/Курсы/shop/src/icons/delete.svg'
 import MyButton from '../UI/MyButton'
 import { IProduct } from '../../interfaces/IProduct'
 import { Context } from '../../context'
 import MySize from '../UI/MySize'
 import MyConfirm from '../UI/MyConfirm'
+import errorImage from '../../images/error-image.png'
 
 interface BasketProductProps {
     product: IProduct
@@ -13,6 +14,7 @@ interface BasketProductProps {
 function BasketProduct({product}: BasketProductProps) {
     const {basket, setBasket} = useContext(Context)
     const [isShowConfirm, setIsShowConfirm] = useState<boolean>(false)
+    const [isImageError, setIsImageError] = useState<boolean>(false)
 
     const addCountHandler = () => {
         setBasket(basket.map((prod: IProduct) => {
@@ -44,6 +46,10 @@ function BasketProduct({product}: BasketProductProps) {
         setIsShowConfirm(false)
     }
 
+    useEffect(() => {
+        setIsImageError(false)
+    }, [product.pictureUrl])
+
     return (
         <div className="basket-product">
             {isShowConfirm && 
@@ -53,9 +59,10 @@ function BasketProduct({product}: BasketProductProps) {
                 />
             }
             <img 
-                src={product.pictureUrl} 
+                src={isImageError ? errorImage : product.pictureUrl} 
                 alt="Картинка товара" 
                 className="basket-product__image" 
+                onError={() => setIsImageError(true)}
             />
 
             <div className="basket-product__item basket-product__item_description">
