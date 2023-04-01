@@ -43,7 +43,7 @@ function App() {
             isAdmin,
             setIsAdmin
         }}>
-            <BrowserRouter>
+            <BrowserRouter basename="/shop">
                 <Header/>
                 <AppRouter/>
                 {windowWidth > 767 ? <Footer/> : <FooterMobile/>}
