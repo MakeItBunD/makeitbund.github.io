@@ -1,5 +1,5 @@
 import React from 'react'
-import logoIcon from 'D:/Курсы/shop/src/icons/logo.svg'
+import logoIcon from 'D:/Курсы/shop/src/icons/logo_white.svg'
 import MyInput from '../UI/MyInput'
 import arrowRightIcon from 'D:/Курсы/shop/src/icons/arrow_right.svg'
 import downloadIcon from 'D:/Курсы/shop/src/icons/download.svg'
