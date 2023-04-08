@@ -26,7 +26,7 @@ function BasketPage() {
     }
 
     return (
-        <div className="basket">
+        <div data-testid="basket-page" className="basket">
             <div className="container">
                 {windowWidth > 963
                     ? <MyRoutesMap routesMap={links}/>

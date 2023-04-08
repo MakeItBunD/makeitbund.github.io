@@ -5,7 +5,7 @@ import basketIcon from 'D:/Курсы/shop/src/icons/basket_white.svg'
 import { useNavigate } from 'react-router-dom'
 import { Context } from '../../context'
 import MySize from '../UI/MySize'
-import MyForm from '../UI/MyForm'
+import MyForm from './Form'
 import MyProductParams from '../UI/MyProductParams'
 import MyAlert from '../UI/MyAlert'
 import errorImage from '../../images/error-image.png'
@@ -25,10 +25,10 @@ function Product({ product, className }: ProductProps) {
     const [isImageError, setIsImageError] = useState<boolean>(false)
     const [isShowConfirm, setIsShowConfirm] = useState<boolean>(false)
 
-    const addHandler = () => {
+    const addProduct = () => {
         setIsAlert(true)
 
-        if (JSON.parse(localStorage.getItem('basket')!).find((prod: IProduct) => prod.barcode === product.barcode)) {
+        if (basket.find((prod: IProduct) => prod.barcode === product.barcode)) {
             setBasket(basket.map((prod: IProduct) => {
                 if (prod.barcode === product.barcode) {
                     prod.count! += 1
@@ -42,12 +42,6 @@ function Product({ product, className }: ProductProps) {
         setBasket((basket: IProduct[]) => [...basket, product])
     }
 
-    useEffect(() => {
-        setTimeout(() => {
-            setIsAlert(false)
-        }, 2000)
-    }, [isAlert])
-
     const deleteProduct = (value: boolean) => {
         if (value) {
             setProducts((products: IProduct[]) => products.filter(prod => prod.barcode !== product.barcode))
@@ -55,6 +49,12 @@ function Product({ product, className }: ProductProps) {
 
         setIsShowConfirm(false)
     }
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsAlert(false)
+        }, 2000)
+    }, [isAlert])
 
     useEffect(() => {
         const body = document.querySelector('body')
@@ -89,6 +89,7 @@ function Product({ product, className }: ProductProps) {
             <MySize product={product}/>
 
             <button 
+                data-testid={`product-link-${product.barcode}`}
                 className="product__name"
                 onClick={() => navigate(`/catalog/product/${product.barcode}`)}
             >
@@ -106,7 +107,7 @@ function Product({ product, className }: ProductProps) {
 
             <div className="product__footer">
                 <h3 className="product__price">{product.price} ₸</h3>
-                <MyButton onClick={addHandler} className='product__button'>
+                <MyButton testid='add-product-btn' onClick={addProduct} className='product__button'>
                     В корзину
                     <img src={basketIcon} alt="Корзина" />
                 </MyButton>

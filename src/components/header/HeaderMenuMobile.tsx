@@ -9,7 +9,6 @@ import { Context } from "../../context";
 
 function HeaderMenuMobile() {
     const navigate = useNavigate()
-
     const { basket } = useContext(Context)
 
     return (
@@ -23,9 +22,9 @@ function HeaderMenuMobile() {
 
                         <img className="header-menu-mobile__logo" src={logoIcon} alt="" />
 
-                        <button onClick={() => navigate('/basket')} className="header-menu-mobile__basket-button">
+                        <button data-testid='basket-link' onClick={() => navigate('/basket')} className="header-menu-mobile__basket-button">
                             <img src={basketIcon} alt="Корзина" />
-                            <div className="header-menu-mobile__basket-items-count">{basket.length}</div>
+                            <div data-testid='basket-count' className="header-menu-mobile__basket-items-count">{basket.length}</div>
                         </button>
                     </div>
                 </div>
@@ -33,7 +32,7 @@ function HeaderMenuMobile() {
                 <div className="header-menu-mobile__buttons-container">
                     <div className="container">
                         <div className="header-menu-mobile__row header-menu-mobile__row_buttons">
-                            <button onClick={() => navigate('/catalog')} className="header-menu-mobile__button header-menu-mobile__button_catalog">
+                            <button data-testid='catalog-link' onClick={() => navigate('/catalog')} className="header-menu-mobile__button header-menu-mobile__button_catalog">
                                 <img src={catalogIcon} alt="" />
                                 <p>Каталог</p>
                             </button>

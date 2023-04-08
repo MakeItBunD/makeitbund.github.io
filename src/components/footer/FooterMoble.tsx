@@ -11,7 +11,7 @@ import mastercardIcon from 'D:/Курсы/shop/src/icons/mastercard.svg'
 
 function FooterMobile() {
     return (
-        <div className="footer-mobile">
+        <div data-testid='mobile-footer-component' className="footer-mobile">
             <div className="container">
                 <div className="footer-mobile__container">
                     <div className="footer-mobile__row footer-mobile__row_header">

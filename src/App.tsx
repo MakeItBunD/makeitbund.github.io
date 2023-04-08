@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter } from "react-router-dom";
 import Header from "./components/header/Header";
 import './index.css'
 import Footer from './components/footer/Footer'
@@ -43,11 +42,9 @@ function App() {
             isAdmin,
             setIsAdmin
         }}>
-            <BrowserRouter basename="/shop">
-                <Header/>
-                <AppRouter/>
-                {windowWidth > 767 ? <Footer/> : <FooterMobile/>}
-            </BrowserRouter>
+            <Header/>
+            <AppRouter/>
+            {windowWidth > 767 ? <Footer/> : <FooterMobile/>}
         </Context.Provider>
     )
 }

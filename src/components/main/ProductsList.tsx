@@ -14,6 +14,18 @@ function ProductsList({products}: ProductsListParams) {
     const [currentPage, setCurrentPage] = useState<number>(1)
     const [isWindowLoaded, setIsWindowLoaded] = useState<boolean>(false)
 
+    const pageLeftHandler = () => {
+        if (currentPage === 1) return
+
+        setCurrentPage(currentPage - 1)
+    }
+
+    const pageRightHandler = () => {
+        if (currentPage === pagesCount) return
+
+        setCurrentPage(currentPage + 1)
+    }
+
     useEffect(() => {
 
         for (let i = 1; i <= pagesCount; i++) {
@@ -32,18 +44,6 @@ function ProductsList({products}: ProductsListParams) {
         setPagesArr([])
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [products])
-
-    const pageLeftHandler = () => {
-        if (currentPage === 1) return
-
-        setCurrentPage(currentPage - 1)
-    }
-
-    const pageRightHandler = () => {
-        if (currentPage === pagesCount) return
-
-        setCurrentPage(currentPage + 1)
-    }
 
     useEffect(() => {
         if (!isWindowLoaded) {

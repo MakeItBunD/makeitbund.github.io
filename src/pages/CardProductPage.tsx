@@ -48,7 +48,7 @@ function CardProductPage() {
     const addProductHandler = () => {
         setIsAlert(true)
 
-        if (JSON.parse(localStorage.getItem('basket')!).find((prod: IProduct) => prod.barcode === product.barcode)) {
+        if (basket.find((prod: IProduct) => prod.barcode === product.barcode)) {
             setBasket(basket.map((prod: IProduct) => {
                 if (prod.barcode === product.barcode) {
                     prod.count! += count
@@ -71,7 +71,7 @@ function CardProductPage() {
     }, [isAlert])
 
     return (
-        <div className="card-product">
+        <div data-testid={`card-product-page-${product.barcode}`} className="card-product">
             {isAlert && <MyAlert/>}
             <div className="container">
                 <div className="card-product__container">

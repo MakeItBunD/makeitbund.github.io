@@ -38,7 +38,7 @@ function CatalogPage() {
     }
 
     return (
-        <div className="catalog">
+        <div data-testid="catalog-page" className="catalog">
             <div className="container">
                 {windowWidth > 963
                     ? <MyRoutesMap routesMap={links}/>

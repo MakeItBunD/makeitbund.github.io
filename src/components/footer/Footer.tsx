@@ -11,7 +11,7 @@ import MyButton from '../UI/MyButton'
 
 function Footer() {
     return (
-        <div className="footer">
+        <div data-testid='footer-component' className="footer">
             <div className="container">
                 <div className="footer__container">
                     <div className="footer__column">

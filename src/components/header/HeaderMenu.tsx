@@ -25,7 +25,7 @@ function HeaderMenu() {
                     </div>
 
                     <div className="header-menu__item">
-                        <MyButton onClick={() => navigate('/catalog')} className="header-menu__button">
+                        <MyButton data-testid='catalog-link' onClick={() => navigate('/catalog')} className="header-menu__button">
                             Каталог 
                             <img src={catalogIcon} alt="" />
                         </MyButton>
@@ -61,9 +61,9 @@ function HeaderMenu() {
                     </div>
 
                     <div className="header-menu__item header-menu__item_basket">
-                        <button onClick={() => navigate('/basket')} className="header-menu__basket-container">
+                        <button data-testid='basket-link' onClick={() => navigate('/basket')} className="header-menu__basket-container">
                             <img src={basketIcon} alt="" />
-                            <div className="header-menu__basket-items-count">{basket.length}</div>
+                            <div data-testid='basket-count' className="header-menu__basket-items-count">{basket.length}</div>
                         </button>
                         <p className="header-menu__basket-price-count">Корзина<br /><span>{basket.reduce((count: number, product: IProduct) => count + product.price * product.count!, 0)} ₸</span></p>
                     </div>

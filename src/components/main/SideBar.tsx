@@ -11,8 +11,10 @@ import arrowTopIcon from 'D:/Курсы/shop/src/icons/arrow-top.svg'
 import arrowDownIcon from 'D:/Курсы/shop/src/icons/arrow-down_black.svg'
 import { useWindowResize } from '../../hooks/useWindowResize'
 import { Context } from '../../context'
-import MyForm from '../UI/MyForm'
+import MyForm from './Form'
 import MyLogin from '../UI/MyLogin'
+import { useSortParams, useDisableBody, useManufacturers } from '../../hooks/useSideBar'
+import MyPriceInput from '../UI/MyPriceInput'
 
 interface SideBarParams {
     onClick: (value: string) => void
@@ -26,51 +28,18 @@ function SideBar({onClick, selected, showClick}: SideBarParams) {
 
     const [isShowAll, setIsShowAll] = useState<boolean>(false)
     const [isShowForm, setIsShowForm] = useState<boolean>(false)
-    const [isShowedParams, setIsShowParams] = useState<boolean>(false)
+    const [isShowParams, setIsShowParams] = useState<boolean>(false)
     const [isShowLoginForm, setIsShowLoginForm] = useState<boolean>(false)
 
-    const [manufacturers, setManufacturers] = useState<string[]>(Array.from(new Set(products.map((product: IProduct) => product.manufacturer).flat())))
-    const [sortedManufacturers, setSortedManufacturers] = useState<string[]>(manufacturers)
-
-    const [sortParams, setSortParams] = useState<IFilterParams>()
     const [minPrice, setMinPrice] = useState<number>(0)
     const [maxPrice, setMaxPrice] = useState<number>(10000)
     const [manufacturersSort, setManufacturersSort] = useState<string[]>([])
+    const sortParams = useSortParams(minPrice, maxPrice, manufacturersSort)
+
+    const manufacturers = useManufacturers(products)
+    const [sortedManufacturers, setSortedManufacturers] = useState<string[]>(manufacturers)
 
     const [search, setSearch] = useState<string>('')
-
-    useEffect(() => {
-        if (!sortedManufacturers.length) {
-            setSortedManufacturers(manufacturers)
-        }
-
-        setSortedManufacturers(manufacturers)
-        setSortedManufacturers(sortedManufacturers => sortedManufacturers.filter(sort => products.filter((product: IProduct) => product.manufacturer === sort).length !== 0))
-        setSortedManufacturers(sortedManufacturers => sortedManufacturers.sort((a:string , b: string) => a.localeCompare(b)))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [products, manufacturers])
-
-    useEffect(() => {
-        setManufacturers(Array.from(new Set(products.map((product: IProduct) => product.manufacturer).flat())))
-    }, [products])
-
-    useEffect(() => {
-        setSortParams({
-            minPrice,
-            maxPrice,
-            manufacturers: manufacturersSort
-        })
-    }, [minPrice, maxPrice, manufacturersSort])
-
-    useEffect(() => {
-        const body = document.querySelector('body')
-
-        if (isShowForm) {
-            body?.classList.add('modal-active')
-        } else {
-            body?.classList.remove('modal-active')
-        }
-    }, [isShowForm])
 
     const createParams = () => {
         showClick(sortParams!)
@@ -111,38 +80,48 @@ function SideBar({onClick, selected, showClick}: SideBarParams) {
         setSortedManufacturers(sortedManufacturers => sortedManufacturers.sort((a:string , b: string) => a.localeCompare(b)))
     }
 
+    useEffect(() => {
+        if (!sortedManufacturers.length) {
+            setSortedManufacturers(manufacturers)
+        }
+
+        setSortedManufacturers(manufacturers
+            .filter(sort => products.filter((product: IProduct) => product.manufacturer === sort).length !== 0)
+            .sort((a:string , b: string) => a.localeCompare(b))
+        ) 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [products, manufacturers])
+
+    useDisableBody(isShowForm)
+
     return (
         <div className="side-bar">
             <div className="side-bar__header">
                 <h2 className="side-bar__title">Подбор по параметрам</h2>
                 <button 
                     className="side-bar__arrow-button"
-                    onClick={() => setIsShowParams(!isShowedParams)}
+                    onClick={() => setIsShowParams(!isShowParams)}
                 >
-                    <img src={isShowedParams ? arrowDownIcon : arrowTopIcon} alt="" />
+                    <img src={isShowParams ? arrowDownIcon : arrowTopIcon} alt="" />
                 </button>
             </div>
 
-            {(windowWidth > 963 || !isShowedParams) &&
+            {(windowWidth > 963 || !isShowParams) &&
                 <>
                     <div className="side-bar__sort-price">
                         <h3 className="side-bar__price-title">Цена <span>₸</span></h3>
 
                         <div className="side-bar__price-inputs">
-                            <input 
-                                onChange={event => setMinPrice(+event.target.value)}
-                                type="number" 
-                                value={minPrice} 
+                            <MyPriceInput
                                 className='side-bar__price-input'
-                                onFocus={event => event.target.select()}
+                                value={minPrice}
+                                onChange={event => setMinPrice(+event.target.value)}
                             />
                             <div className="side-bar__price-between">-</div>
-                            <input 
-                                onChange={event => setMaxPrice(+event.target.value)}
-                                type="number" 
-                                value={maxPrice} 
+                            <MyPriceInput
                                 className='side-bar__price-input'
-                                onFocus={event => event.target.select()}
+                                value={maxPrice}
+                                onChange={event => setMaxPrice(+event.target.value)}
                             />
                         </div>
                     </div>
@@ -199,7 +178,7 @@ function SideBar({onClick, selected, showClick}: SideBarParams) {
                 </>
             }
                 
-            {(windowWidth > 963 || isShowedParams) &&
+            {(windowWidth > 963 || isShowParams) &&
                 <div className="side-bar__care-type-list">
                     <h3 className="side-bar__care-type-title">Тип товара</h3>
                     <SortCareType 
@@ -212,10 +191,10 @@ function SideBar({onClick, selected, showClick}: SideBarParams) {
             {isAdmin 
                 ? 
                 <>
-                    <MyButton onClick={() => setIsShowForm(true)} className="side-bar__control-button">Создать товар</MyButton>
-                    <MyButton onClick={() => setIsAdmin(false)} className="side-bar__control-button">Выйти</MyButton>
+                    <MyButton testid='show-form-btn' onClick={() => setIsShowForm(true)} className="side-bar__control-button">Создать товар</MyButton>
+                    <MyButton testid='log-out-btn' onClick={() => setIsAdmin(false)} className="side-bar__control-button">Выйти</MyButton>
                 </>
-                : <MyButton onClick={() => setIsShowLoginForm(true)} className="side-bar__control-button">Войти</MyButton>
+                : <MyButton testid='login-modal-btn' onClick={() => setIsShowLoginForm(true)} className="side-bar__control-button">Войти</MyButton>
             }
             {isShowLoginForm &&
                 <MyLogin onClick={() => setIsShowLoginForm(false)}/>

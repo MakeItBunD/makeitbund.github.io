@@ -38,6 +38,7 @@ function MyLogin({onClick}: MyLoginProps) {
                         <div className="login__input-container">
                             <label className="login__label">Пароль</label>
                             <MyInput 
+                                testid='login-input'
                                 valueProp={password}
                                 className={isError ? 'login__input error' : 'login__input'}
                                 type='password'
@@ -46,7 +47,7 @@ function MyLogin({onClick}: MyLoginProps) {
                             />
                             <small className={isError ? 'error' : ''}>Неправильный пароль</small>
                         </div>
-                        <MyButton className='login__button'>Войти</MyButton>
+                        <MyButton testid='login-btn' className='login__button'>Войти</MyButton>
                         <button className='login__close-button' onClick={() => onClick()}>
                             <img src={closeIcon} alt="Закрыть" />
                         </button>

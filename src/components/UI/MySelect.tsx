@@ -1,4 +1,4 @@
-import React from 'react' 
+import React, { useState } from 'react' 
 
 interface MySelectProps {
     className: string
@@ -11,11 +11,19 @@ interface MySelectProps {
 }
 
 function MySelect({className, value, onChange, options}: MySelectProps) {
+    const [valueProp, setValueProp] = useState(value)
+
+    const changeHandler = (value: string) => {
+        setValueProp(value)
+        onChange(value)
+    }
+
     return (
         <select 
+            data-testid='my-select'
             className={className} 
-            value={value} 
-            onChange={event => onChange(event.target.value)}
+            value={valueProp} 
+            onChange={event => changeHandler(event.target.value)}
         >
             {options.map((option: {name: string, value: string}) => (
                 <option key={option.value} value={option.value}>{option.name}</option>

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 interface MyInputProps {
     className: string
     type: string
+    testid?: string
     placeholder?: string
     valueProp?: any
     onChange?: (value: string) => void
@@ -10,7 +11,7 @@ interface MyInputProps {
     onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void
 }
 
-function MyInput({className, placeholder, type, valueProp, onChange, onBlur, onFocus}: MyInputProps) {
+function MyInput({className, placeholder, type, valueProp, testid, onChange, onBlur, onFocus}: MyInputProps) {
     const [value, setValue] = useState(valueProp ?? '')
 
     const changeHandler = (value: string) => {
@@ -23,6 +24,7 @@ function MyInput({className, placeholder, type, valueProp, onChange, onBlur, onF
 
     return (
         <input 
+            data-testid={testid ?? 'my-input'}
             className={className + ' input'}
             type={type ?? 'text'} 
             placeholder={placeholder} 
