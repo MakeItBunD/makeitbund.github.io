@@ -18,7 +18,7 @@ function FormList({ formItems }: FormListProps) {
     return (
         <>
             {formItems.map((formItem: IFormItem) => (
-                <div className="form__item">
+                <div key={formItem.name} className="form__item">
                     <label className='form__label'>{formItem.name}</label>
                     <MyInput 
                         className='form__input'
