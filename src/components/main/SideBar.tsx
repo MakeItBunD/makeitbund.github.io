@@ -130,24 +130,25 @@ function SideBar({onClick, selected, showClick}: SideBarParams) {
                         <h3 className="side-bar__manufacturer-title">Производитель</h3>
                         <div className="side-bar__input-container">
                             <MyInput 
+                                testid='search-manufacturer-input'
                                 className='side-bar__manufacturer-search'
                                 placeholder='Поиск...'
                                 type='text'
                                 valueProp={search}
                                 onChange={value => setSearch(value)}
                             />
-                            <MyButton className="side-bar__input-button" onClick={searchParamsHandler}>
+                            <MyButton testid='search-manufacturer-btn' className="side-bar__input-button" onClick={searchParamsHandler}>
                                 <img src={searchIcon} alt="" />
                             </MyButton>
                         </div>
                     </div>
 
-                    <div className="side-bar__manufacturer-list">
+                    <div data-testid='manufacturer-list' className="side-bar__manufacturer-list">
                         {sortedManufacturers.length
                             ?
                                 <>
                                     {sortedManufacturers.map((manufacturer, index) => (
-                                        <p key={manufacturer} className={!isShowAll && index >= 4 ? "check-input-hide" : ''}>
+                                        <p data-testid={`manufacturer-${manufacturer}`} key={manufacturer} className={!isShowAll && index >= 4 ? "check-input-hide" : ''}>
                                             <input 
                                                 type="checkbox" 
                                                 value={manufacturer}
